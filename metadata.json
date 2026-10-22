@@ -1,0 +1,6 @@
+{
+  "name": "Cầu đi bộ bắc qua sông Sài Gòn",
+  "description": "Cầu đi bộ bắc qua sông Sài Gòn - Điểm nhấn kiến trúc mới của TPHCM | AURA 3D Visuals & Interactive Digital Experiences",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
