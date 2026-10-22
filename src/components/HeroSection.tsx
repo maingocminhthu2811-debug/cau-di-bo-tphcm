@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { HERO_DATA } from '../data/bridgeData';
 
 interface HeroSectionProps {
@@ -7,48 +7,68 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoSrc, setVideoSrc] = useState<string>('/video-mobile.mp4');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth > 768) {
+      setVideoSrc('/video-desktop.mp4');
+    }
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
+    // Force strict mute & playsinline on DOM node for iOS WebKit
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.controls = false;
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('x-webkit-airplay', 'deny');
+    video.setAttribute('disablePictureInPicture', 'true');
+    video.setAttribute('disableRemotePlayback', 'true');
+    video.setAttribute('tabindex', '-1');
+
     const safePlay = () => {
-      if (video) {
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {});
-        }
+      if (!video) return;
+      video.muted = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
       }
     };
 
     safePlay();
 
-    const eventTypes = ['loadeddata', 'canplay', 'visibilitychange'];
-    eventTypes.forEach((evt) => {
-      window.addEventListener(evt, safePlay, { passive: true });
-    });
+    const onCanPlay = () => safePlay();
+    const onLoaded = () => safePlay();
+    const onPause = () => safePlay(); // Auto-resume if iOS tries to pause
 
-    const handleFirstTouch = () => {
+    video.addEventListener('canplay', onCanPlay);
+    video.addEventListener('loadeddata', onLoaded);
+    video.addEventListener('pause', onPause);
+
+    const handleFirstInteraction = () => {
       safePlay();
-      window.removeEventListener('touchstart', handleFirstTouch);
-      window.removeEventListener('scroll', handleFirstTouch);
     };
-    window.addEventListener('touchstart', handleFirstTouch, { passive: true });
-    window.addEventListener('scroll', handleFirstTouch, { passive: true });
+    window.addEventListener('touchstart', handleFirstInteraction, { passive: true, once: true });
+    window.addEventListener('scroll', handleFirstInteraction, { passive: true, once: true });
 
     return () => {
-      eventTypes.forEach((evt) => {
-        window.removeEventListener(evt, safePlay);
-      });
-      window.removeEventListener('touchstart', handleFirstTouch);
-      window.removeEventListener('scroll', handleFirstTouch);
+      video.removeEventListener('canplay', onCanPlay);
+      video.removeEventListener('loadeddata', onLoaded);
+      video.removeEventListener('pause', onPause);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('scroll', handleFirstInteraction);
     };
-  }, []);
+  }, [videoSrc]);
 
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[100vh] sm:min-h-[110vh] overflow-visible bg-[#0a0a0b] flex flex-col justify-between items-center pt-4 pb-0 px-4 sm:px-6 lg:px-8 font-sans"
+      className="relative w-full min-h-[100vh] sm:min-h-[110vh] overflow-visible bg-[#0a0a0b] flex flex-col justify-between items-center pt-4 pb-0 px-4 sm:px-6 lg:px-8 font-sans select-none"
       style={{
         position: 'relative',
         width: '100%',
@@ -57,16 +77,19 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
         background: '#0a0a0b',
       }}
     >
-      {/* Full-bleed Background Video with Instant Poster & Responsive Mobile Stream */}
+      {/* Background Video - Pure visual background, strictly non-interactive, auto-playing & looping */}
       <video
         ref={videoRef}
+        src={videoSrc}
         muted
         loop
         playsInline
         autoPlay
-        preload="metadata"
+        preload="auto"
         poster="/hero-poster.webp"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
+        tabIndex={-1}
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0"
         style={{
           position: 'absolute',
           inset: 0,
@@ -75,21 +98,22 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           objectFit: 'cover',
           objectPosition: 'center 50%',
           pointerEvents: 'none',
+          userSelect: 'none',
+          WebkitUserSelect: 'none',
+          touchAction: 'none',
         }}
-      >
-        <source media="(max-width: 768px)" src="/video-mobile.mp4" type="video/mp4" />
-        <source src="/video-desktop.mp4" type="video/mp4" />
-        <source src="/video%20n%E1%BB%81n/video%20nen.mp4" type="video/mp4" />
-      </video>
+      />
 
-      {/* Reduced Bright Dark Gradient Overlay */}
+      {/* Reduced Bright Dark Gradient Overlay & Pointer Shield */}
       <div
-        className="absolute inset-0 pointer-events-none z-10"
+        className="absolute inset-0 pointer-events-none select-none z-10"
+        aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
           background:
             'linear-gradient(180deg, rgba(8,8,10,0.35) 0%, rgba(8,8,10,0.08) 35%, rgba(8,8,10,0.15) 65%, rgba(8,8,10,0.65) 100%)',
+          pointerEvents: 'none',
         }}
       />
 
