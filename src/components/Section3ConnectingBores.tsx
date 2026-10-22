@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MARQUEE_ROW_1, MARQUEE_ROW_2, GRAND_FINAL_IMAGE, ARCHITECTURAL_HOTSPOTS } from '../data/bridgeData';
 import { GalleryImage, ArchitecturalSpot } from '../types';
-import { MapPin, ZoomIn, Info, CheckCircle2 } from 'lucide-react';
+import { ZoomIn, Info } from 'lucide-react';
 
 interface Section3Props {
   onOpenImageModal: (image: GalleryImage) => void;
@@ -125,7 +125,7 @@ export const Section3ConnectingBores: React.FC<Section3Props> = ({ onOpenImageMo
         </div>
       </div>
 
-      {/* 1 Large Final Image with Hotspots */}
+      {/* 1 Large Final Image */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="relative rounded-3xl overflow-hidden border border-emerald-300 bg-emerald-950 shadow-xl group">
           <div className="relative aspect-[16/9] w-full overflow-hidden">
@@ -136,7 +136,7 @@ export const Section3ConnectingBores: React.FC<Section3Props> = ({ onOpenImageMo
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-transparent to-transparent opacity-60" />
 
             {/* Hotspots */}
             {ARCHITECTURAL_HOTSPOTS.map((spot) => {
@@ -165,29 +165,6 @@ export const Section3ConnectingBores: React.FC<Section3Props> = ({ onOpenImageMo
             >
               <ZoomIn className="w-4 h-4" />
             </button>
-          </div>
-
-          <div className="p-6 bg-emerald-950 text-slate-100 border-t border-emerald-900 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            {activeSpot ? (
-              <div className="space-y-1 max-w-2xl">
-                <div className="flex items-center gap-2 text-amber-300 font-mono text-xs uppercase font-bold tracking-wider">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                  <span>{activeSpot.title}</span>
-                </div>
-                <p className="text-sm text-slate-200 font-sans">{activeSpot.description}</p>
-              </div>
-            ) : (
-              <p className="text-xs text-slate-300 font-mono">Nhấp vào các điểm chú thích trên hình để xem thông tin kiến trúc chi tiết.</p>
-            )}
-
-            <div className="flex items-center gap-3 text-xs text-slate-300 font-mono shrink-0">
-              <span className="flex items-center gap-1 text-amber-300">
-                <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                {GRAND_FINAL_IMAGE.location}
-              </span>
-              <span>•</span>
-              <span className="text-amber-300 font-bold">{GRAND_FINAL_IMAGE.date}</span>
-            </div>
           </div>
         </div>
       </div>

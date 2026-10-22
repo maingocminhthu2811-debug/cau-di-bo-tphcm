@@ -1,79 +1,154 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { HERO_DATA } from '../data/bridgeData';
-import { Interactive3DViewer } from './Interactive3DViewer';
 
 interface HeroSectionProps {
   onOpenFullscreen3D?: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenFullscreen3D }) => {
+export const HeroSection: React.FC<HeroSectionProps> = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const safePlay = () => {
+      if (video) {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
+      }
+    };
+
+    safePlay();
+
+    const eventTypes = ['pause', 'ended', 'loadedmetadata', 'canplay'];
+    eventTypes.forEach((evt) => {
+      video.addEventListener(evt, safePlay);
+    });
+
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        safePlay();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    const watchdogInterval = setInterval(() => {
+      if (video.paused) {
+        safePlay();
+      }
+    }, 1000);
+
+    return () => {
+      eventTypes.forEach((evt) => {
+        video.removeEventListener(evt, safePlay);
+      });
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      clearInterval(watchdogInterval);
+    };
+  }, []);
+
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] w-full flex flex-col justify-center pt-12 sm:pt-16 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#f0fdf4] via-[#ecfdf5] to-[#e6f4ea] overflow-hidden border-b border-emerald-200/80"
+      className="relative w-full min-h-[100vh] sm:min-h-[110vh] overflow-visible bg-[#0a0a0b] flex flex-col justify-between items-center pt-4 pb-0 px-4 sm:px-6 lg:px-8 font-sans"
+      style={{
+        position: 'relative',
+        width: '100%',
+        minHeight: '100vh',
+        overflow: 'visible',
+        background: '#0a0a0b',
+      }}
     >
-      {/* Background Glows */}
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-emerald-300/30 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-amber-300/25 rounded-full blur-[100px] pointer-events-none" />
+      {/* Full-bleed Background Video */}
+      <video
+        ref={videoRef}
+        muted
+        loop
+        playsInline
+        autoPlay
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center 50%',
+          pointerEvents: 'none',
+        }}
+      >
+        <source src="/video%20n%E1%BB%81n/video%20nen.mp4" type="video/mp4" />
+        <source src="/video nền/video nen.mp4" type="video/mp4" />
+      </video>
 
-      <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center relative z-10">
-        {/* Hero Title & Subtitle Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start my-auto">
-          <div className="lg:col-span-7 space-y-6">
-            {/* Main Title */}
-            <h1
-              className="font-display font-black tracking-tight leading-[1.1] text-emerald-950"
+      {/* Reduced Bright Dark Gradient Overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background:
+            'linear-gradient(180deg, rgba(8,8,10,0.35) 0%, rgba(8,8,10,0.08) 35%, rgba(8,8,10,0.15) 65%, rgba(8,8,10,0.65) 100%)',
+        }}
+      />
+
+      {/* Title Container - Positioned in the Top 1/4 of the Hero Area */}
+      <div className="relative z-20 max-w-5xl mx-auto w-full text-center flex flex-col items-center justify-start space-y-1 sm:space-y-1.5 pt-6 sm:pt-8 lg:pt-10">
+        {/* Line 1: CẦU ĐI BỘ (UPPERCASE, Bold) */}
+        <h1
+          className="font-display font-black text-white uppercase tracking-tight leading-none text-balance drop-shadow-2xl"
+          style={{
+            fontSize: 'clamp(2.75rem, 6vw + 1rem, 5.5rem)',
+          }}
+        >
+          CẦU ĐI BỘ
+        </h1>
+
+        {/* Line 2: BẮC QUA SÔNG SÀI GÒN (UPPERCASE, Bolder Font) */}
+        <h2
+          className="font-display font-extrabold text-slate-100 uppercase tracking-widest leading-none drop-shadow-lg"
+          style={{
+            fontSize: 'clamp(1.5rem, 3.5vw + 0.5rem, 3.25rem)',
+          }}
+        >
+          BẮC QUA SÔNG SÀI GÒN
+        </h2>
+
+        {/* Subtitle Badge: [Điểm nhấn kiến trúc mới của TPHCM] in Ultra-Transparent Glassmorphism showing Video */}
+        <div className="pt-2">
+          <div className="inline-block bg-black/15 backdrop-blur-sm border border-white/20 px-7 py-2.5 rounded-2xl shadow-xl">
+            <p
+              className="font-sans font-extrabold text-amber-300 tracking-tight drop-shadow-md"
               style={{
-                fontSize: 'clamp(2.25rem, 5vw + 1rem, 4.25rem)'
+                fontSize: 'clamp(1.25rem, 2.5vw + 0.5rem, 2.25rem)',
               }}
             >
-              {HERO_DATA.title}
-            </h1>
-
-            {/* Subtitle / Headline */}
-            <div className="border-l-4 border-amber-500 pl-4 py-1 bg-emerald-100/60 rounded-r-2xl">
-              <h2
-                className="font-sans font-bold text-emerald-900 tracking-tight leading-snug"
-                style={{
-                  fontSize: 'clamp(1.25rem, 2.5vw + 0.5rem, 2rem)'
-                }}
-              >
-                {HERO_DATA.subtitle}
-              </h2>
-            </div>
-
-            {/* Sapo Paragraph */}
-            <div className="space-y-4 text-emerald-950 font-sans leading-relaxed text-base sm:text-lg max-w-2xl text-justify sm:text-left font-normal">
-              {HERO_DATA.sapo.split('\n\n').map((paragraph, idx) => (
-                <p
-                  key={idx}
-                  className={idx === 1 ? 'font-medium text-emerald-900 italic border-t border-emerald-300/80 pt-3 mt-3' : ''}
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-
-            {/* Key Architectural Stats Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
-              {HERO_DATA.stats.map((stat, i) => (
-                <div
-                  key={i}
-                  className="bg-white/90 border border-emerald-200 rounded-2xl p-4 shadow-sm hover:border-amber-400 hover:shadow-md transition-all group"
-                >
-                  <p className="text-[11px] font-mono font-bold text-emerald-800 uppercase tracking-wider mb-1">{stat.label}</p>
-                  <p className="text-xl sm:text-2xl font-extrabold font-display text-emerald-950 group-hover:text-amber-600 transition-colors">
-                    {stat.value}
-                  </p>
-                  <p className="text-[11px] text-emerald-700 font-medium mt-1">{stat.detail}</p>
-                </div>
-              ))}
-            </div>
+              {HERO_DATA.subtitle}
+            </p>
           </div>
+        </div>
+      </div>
 
-          {/* 3D Interactive Model Studio Container */}
-          <div className="lg:col-span-5 w-full">
-            <Interactive3DViewer onOpenFullscreen={onOpenFullscreen3D} />
+      {/* Sapo White Card - Positioned at Bottom Overlapping Light Green Below */}
+      <div className="relative z-30 max-w-4xl mx-auto w-full px-2 sm:px-4 mt-auto -mb-36 sm:-mb-44">
+        <div className="bg-white border-2 border-amber-500 rounded-t-[32px] rounded-b-none p-6 sm:p-10 shadow-2xl relative">
+          <div className="space-y-4 text-emerald-950 font-sans leading-relaxed text-base sm:text-lg italic font-normal text-justify sm:text-left">
+            {HERO_DATA.sapo.split('\n\n').map((paragraph, idx) => (
+              <p
+                key={idx}
+                className={
+                  idx === 1
+                    ? 'font-semibold text-emerald-900 not-italic border-t border-emerald-100 pt-3 mt-3 text-center'
+                    : 'text-emerald-950 font-medium'
+                }
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
       </div>

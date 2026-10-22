@@ -12,7 +12,7 @@ export const HERO_DATA = {
   ]
 };
 
-// Phase 1 Milestones (Right timeline axis, Left dates & content)
+// Phase 1 Milestones
 export const TIMELINE_PHASE_1: MilestoneItem[] = [
   {
     id: "m-2019-08",
@@ -97,38 +97,109 @@ export const TIMELINE_PHASE_1: MilestoneItem[] = [
   }
 ];
 
-// Phase 2 Milestones (5/12 image box on left with 5 photos, 7/12 date & content cards on right)
+// Phase 2 Milestones with specific inline image arrays
 export const TIMELINE_PHASE_2: MilestoneItem[] = [
   {
     id: "m-2026-10-15",
     timeLabel: "Đêm 15-10-2026",
     title: "Chuyển kết cấu thép lên sà lan tại Đại Dũng",
     content: "Tại Nhà máy đóng tàu Đại Dũng (Khu công nghiệp Đông Xuyên, phường Rạch Dừa, TPHCM), các kỹ sư, công nhân triển khai đưa kết cấu thép của cầu đi bộ qua sông Sài Gòn lên sà lan. Công trình được hạ thủy vào rạng sáng 16-10 để vận chuyển đến vị trí lắp đặt.",
-    subContent: "Trước đó, kết cấu cầu chính khoảng 1.400 tấn và hệ khung thép nâng đỡ chuyên dụng khoảng 2.000 tấn trải qua một cuộc thử tải đặc biệt. Hoạt động này nhằm kiểm tra khả năng chịu lực, độ ổn định và mức độ an toàn của cả kết cấu cầu lẫn hệ khung đỡ trước khi vận chuyển và hợp long."
+    subContent: "Trước đó, kết cấu cầu chính khoảng 1.400 tấn và hệ khung thép nâng đỡ chuyên dụng khoảng 2.000 tấn trải qua một cuộc thử tải đặc biệt. Hoạt động này nhằm kiểm tra khả năng chịu lực, độ ổn định và mức độ an toàn của cả kết cấu cầu lẫn hệ khung đỡ trước khi vận chuyển và hợp long.",
+    images: [
+      {
+        id: "c1-img-1",
+        url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
+        alt: "Đưa kết cấu thép cầu lên sà lan tại nhà máy đóng tàu Đại Dũng",
+        caption: "Kỹ sư và công nhân tập trung cao độ đưa vòm thép 1.400T lên sà lan."
+      },
+      {
+        id: "c1-img-2",
+        url: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop",
+        alt: "Công tác chuẩn bị hạ thủy vòm thép cầu đi bộ",
+        caption: "Công nhân kiểm tra các khớp nối đai thép trước giờ giội thủy."
+      },
+      {
+        id: "c1-img-3",
+        url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600&auto=format&fit=crop",
+        alt: "Thử tải đặc biệt hệ khung thép 3.400 tấn",
+        caption: "Thử tải kiên cố kiểm tra độ biến dạng và khả năng chịu lực của kết cấu cầu chính 1.400T và khung đỡ 2.000T."
+      }
+    ]
   },
   {
     id: "m-2026-10-18",
     timeLabel: "4 giờ ngày 18-10-2026",
     title: "Hành trình lai dắt vòm thép 3.400 tấn dài 124km",
     content: "Vòm thép hình lá dừa nước nặng 3400 tấn của cầu đi bộ vượt sông Sài Gòn được lai dắt từ cảng Đông Xuyên (Vũng Tàu) về khu vực Bến Bạch Đằng - Thủ Thiêm.",
-    subContent: "Nhịp cầu thép khổng lồ được đặt trên sà lan chuyên dụng, di chuyển giữa không gian sông nước, phía trên là công trình cầu Bình Khánh với những trụ cầu quy mô lớn, bên dưới là hoạt động giao thông thủy trên tuyến sông kết nối các khu vực phía Nam TPHCM. Đoàn vận chuyển gồm tàu kéo chính, hai tàu hỗ trợ áp mạn và một tàu kéo dự phòng. Hành trình lai dắt dài khoảng 124km."
+    subContent: "Nhịp cầu thép khổng lồ được đặt trên sà lan chuyên dụng, di chuyển giữa không gian sông nước, phía trên là công trình cầu Bình Khánh với những trụ cầu quy mô lớn, bên dưới là hoạt động giao thông thủy trên tuyến sông kết nối các khu vực phía Nam TPHCM. Đoàn vận chuyển gồm tàu kéo chính, hai tàu hỗ trợ áp mạn và một tàu kéo dự phòng. Hành trình lai dắt dài khoảng 124km.",
+    images: [
+      {
+        id: "c2-img-1",
+        url: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=1200&auto=format&fit=crop",
+        alt: "Đoàn tàu kéo lai dắt vòm thép qua cầu Bình Khánh",
+        caption: "Đoàn lai dắt 4 tàu di chuyển qua khu vực trụ cầu Bình Khánh."
+      },
+      {
+        id: "c2-img-2",
+        url: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
+        alt: "Tàu kéo chính và tàu hỗ trợ áp mạn trên sông Soài Ráp",
+        caption: "Hai tàu hỗ trợ áp mạn điều tiết tốc độ trên hành trình 124km."
+      },
+      {
+        id: "c2-img-3",
+        url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
+        alt: "Vòm thép lá dừa di chuyển giữa sông Sài Gòn",
+        caption: "Khối thép khổng lồ tiến về khu vực Bến Bạch Đằng - Thủ Thiêm."
+      },
+      {
+        id: "c2-img-4",
+        url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200&auto=format&fit=crop",
+        alt: "Toàn cảnh sông Sài Gòn đón nhịp cầu thép",
+        caption: "Quang cảnh giao thông đường thủy trên tuyến sông phía Nam TPHCM."
+      }
+    ]
   },
   {
     id: "m-2026-10-21",
     timeLabel: "Rạng sáng 21-10-2026",
     title: "Hợp long nhịp chính xuyên đêm giữa trung tâm TPHCM",
     content: "Công trình cầu đi bộ qua sông Sài Gòn, kết nối khu vực Bến Bạch Đằng (phường Sài Gòn) với Khu đô thị mới Thủ Thiêm (phường An Khánh), bước vào giai đoạn hợp long nhịp chính.",
-    subContent: "Việc đưa vòm thép hình lá dừa nước nặng khoảng 1.400 tấn vào vị trí lắp đặt được triển khai xuyên đêm, với yêu cầu cao về độ chính xác và an toàn trong điều kiện thi công trên sông."
-  },
-  {
-    id: "m-2026-10-finish",
-    timeLabel: "Giai đoạn hoàn thiện",
-    title: "Lắp đặt lan can, chiếu sáng nghệ thuật và tiện ích",
-    content: "Sau khi hoàn thành hợp long dầm chính, nhà thầu sẽ tiếp tục hoàn thiện mặt cầu, lắp đặt lan can, hệ thống chiếu sáng nghệ thuật và các tiện ích phụ trợ."
+    subContent: "Việc đưa vòm thép hình lá dừa nước nặng khoảng 1.400 tấn vào vị trí lắp đặt được triển khai xuyên đêm, với yêu cầu cao về độ chính xác và an toàn trong điều kiện thi công trên sông.\n\nSau khi hoàn thành hợp long dầm chính, nhà thầu sẽ tiếp tục hoàn thiện mặt cầu, lắp đặt lan can, hệ thống chiếu sáng nghệ thuật và các tiện ích phụ trợ.",
+    images: [
+      {
+        id: "c3-img-1",
+        url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop",
+        alt: "Hợp long dầm thép chính cầu đi bộ xuyên đêm",
+        caption: "Khoảnh khắc vòm thép lá dừa nước được đưa chính xác vào vị trí trụ cầu Bến Bạch Đằng - Thủ Thiêm giữa đêm muộn."
+      },
+      {
+        id: "c3-img-2",
+        url: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop",
+        alt: "Giai đoạn hoàn thiện lan can và chiếu sáng",
+        caption: "Thi công hoàn thiện mặt cầu và hệ thống chiếu sáng nghệ thuật."
+      },
+      {
+        id: "c3-img-3",
+        url: "https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1200&auto=format&fit=crop",
+        alt: "Không gian sinh hoạt cộng đồng bờ sông",
+        caption: "Mặt cầu sẵn sàng mở ra không gian đi bộ ngắm cảnh sông Sài Gòn."
+      },
+      {
+        id: "c3-img-4",
+        url: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop",
+        alt: "Cảnh quan Bến Bạch Đằng và Thủ Thiêm",
+        caption: "Nối liền trái tim tự hào của người dân TPHCM trước Tết 2027."
+      },
+      {
+        id: "c3-img-5",
+        url: "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?q=80&w=1200&auto=format&fit=crop",
+        alt: "Cận cảnh nhịp vòm thép lá dừa nước hoàn thành",
+        caption: "Kiệt tác kiến trúc thép vòm lá dừa nước rực rỡ soi bóng trên sông Sài Gòn."
+      }
+    ]
   }
 ];
 
-// 5 images for Phase 2 left viewer container
 export const PHASE_2_GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "p2-img-1",
@@ -177,7 +248,6 @@ export const PHASE_2_GALLERY_IMAGES: GalleryImage[] = [
   }
 ];
 
-// Section 3: 12 Marquee photos
 export const MARQUEE_ROW_1: GalleryImage[] = [
   {
     id: "m1",
@@ -256,7 +326,6 @@ export const MARQUEE_ROW_2: GalleryImage[] = [
   }
 ];
 
-// Grand Final Image
 export const GRAND_FINAL_IMAGE: GalleryImage = {
   id: "grand-final",
   url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000&auto=format&fit=crop",
@@ -267,7 +336,6 @@ export const GRAND_FINAL_IMAGE: GalleryImage = {
   photographer: "SGGP Special Edition / AURA Visual Studio"
 };
 
-// Interactive Hotspots on Grand Final Image
 export const ARCHITECTURAL_HOTSPOTS: ArchitecturalSpot[] = [
   {
     id: "h1",
