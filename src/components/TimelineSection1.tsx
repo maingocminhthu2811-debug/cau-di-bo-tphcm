@@ -1,11 +1,172 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { TIMELINE_PHASE_1 } from '../data/bridgeData';
 import { GalleryImage } from '../types';
-import { Calendar, ZoomIn } from 'lucide-react';
+import { Calendar, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface TimelineSection1Props {
   onOpenImageModal: (image: GalleryImage) => void;
 }
+
+const Timeline1ImageCarousel: React.FC<{
+  images: GalleryImage[];
+  onOpenImageModal: (image: GalleryImage) => void;
+}> = ({ images, onOpenImageModal }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  if (!images || images.length === 0) return null;
+  const currentImg = images[currentIndex] || images[0];
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((currentIndex + 1) % images.length);
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    if (deltaX > 40) {
+      setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+    } else if (deltaX < -40) {
+      setCurrentIndex((currentIndex + 1) % images.length);
+    }
+    touchStartX.current = null;
+  };
+
+  return (
+    <div>
+      {/* Mobile & Tablet: 1 single image at a time with Left/Right navigation, swipe & counter */}
+      <div
+        className="block lg:hidden relative rounded-2xl overflow-hidden border border-emerald-200 bg-emerald-950 shadow-md select-none"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
+        <div className="relative aspect-[16/10] sm:aspect-[21/9] max-h-56 sm:max-h-64 w-full overflow-hidden flex items-center justify-center bg-black">
+          <img
+            key={currentImg.id || currentIndex}
+            src={currentImg.url}
+            alt={currentImg.alt || ''}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover transition-transform duration-500 ease-out"
+          />
+
+          {/* Left Navigation Button */}
+          {images.length > 1 && (
+            <button
+              type="button"
+              onClick={handlePrev}
+              className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 p-2 sm:p-2.5 rounded-full bg-emerald-950/85 hover:bg-amber-400 text-amber-300 hover:text-emerald-950 border border-emerald-600 transition-all shadow-lg z-20 flex items-center justify-center cursor-pointer active:scale-95"
+              title="Hình trước đó"
+              aria-label="Hình trước đó"
+            >
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+          )}
+
+          {/* Right Navigation Button */}
+          {images.length > 1 && (
+            <button
+              type="button"
+              onClick={handleNext}
+              className="absolute right-2.5 sm:right-3 top-1/2 -translate-y-1/2 p-2 sm:p-2.5 rounded-full bg-emerald-950/85 hover:bg-amber-400 text-amber-300 hover:text-emerald-950 border border-emerald-600 transition-all shadow-lg z-20 flex items-center justify-center cursor-pointer active:scale-95"
+              title="Hình kế tiếp"
+              aria-label="Hình kế tiếp"
+            >
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+          )}
+
+          {/* Zoom In Button */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenImageModal(currentImg);
+            }}
+            className="absolute top-2.5 right-2.5 p-2 rounded-full bg-emerald-950/85 border border-emerald-700 text-amber-300 hover:bg-amber-400 hover:text-emerald-950 transition-all shadow-md z-20 cursor-pointer active:scale-95"
+            title="Phóng to hình ảnh"
+          >
+            <ZoomIn className="w-4 h-4" />
+          </button>
+
+          {/* Bottom Dots & Counter */}
+          {images.length > 1 && (
+            <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/90 backdrop-blur border border-emerald-700/80 z-20 shadow-md">
+              {images.map((_, dotIdx) => (
+                <button
+                  key={dotIdx}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentIndex(dotIdx);
+                  }}
+                  className={`h-2 rounded-full transition-all cursor-pointer ${
+                    dotIdx === currentIndex ? 'w-6 bg-amber-400' : 'w-2 bg-white/40 hover:bg-white/80'
+                  }`}
+                  title={`Ảnh ${dotIdx + 1}`}
+                  aria-label={`Chuyển tới ảnh ${dotIdx + 1}`}
+                />
+              ))}
+              <span className="text-[11px] font-mono font-bold text-amber-300 ml-1.5">
+                {currentIndex + 1}/{images.length}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {currentImg.caption && (
+          <div className="p-2.5 sm:p-3 bg-emerald-950 text-xs sm:text-sm text-slate-200 font-medium border-t border-emerald-900 leading-relaxed">
+            {currentImg.caption}
+          </div>
+        )}
+      </div>
+
+      {/* Desktop (lg:): Side-by-side Grid */}
+      <div className="hidden lg:grid lg:grid-cols-2 gap-4">
+        {images.map((img, imgIdx) => (
+          <div
+            key={img.id || imgIdx}
+            className="relative rounded-2xl overflow-hidden border border-emerald-200 bg-emerald-950 group/img shadow-md hover:border-amber-400 transition-all"
+          >
+            <div className="relative aspect-[16/10] w-full overflow-hidden">
+              <img
+                src={img.url}
+                alt={img.alt}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-transparent to-transparent opacity-70" />
+              <button
+                type="button"
+                onClick={() => onOpenImageModal(img)}
+                className="absolute top-2.5 right-2.5 p-1.5 rounded-full bg-emerald-950/80 border border-emerald-700 text-amber-300 hover:bg-amber-400 hover:text-emerald-950 transition-all shadow-md"
+                title="Phóng to hình ảnh"
+              >
+                <ZoomIn className="w-3.5 h-3.5" />
+              </button>
+            </div>
+            {img.caption && (
+              <div className="p-3 sm:p-3.5 bg-emerald-950 text-xs sm:text-sm text-slate-200 border-t border-emerald-900">
+                <p className="font-medium leading-relaxed">{img.caption}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export const TimelineSection1: React.FC<TimelineSection1Props> = ({ onOpenImageModal }) => {
   return (
@@ -56,42 +217,13 @@ export const TimelineSection1: React.FC<TimelineSection1Props> = ({ onOpenImageM
                       </p>
                     )}
 
-                    {/* 2 Side-by-Side Small Images Grid */}
+                    {/* Image presentation: 1 image on mobile/tablet with left/right buttons, 2 on desktop */}
                     {hasImages && (
                       <div className="mt-6 pt-6 border-t border-emerald-100">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          {item.images!.map((img, imgIdx) => (
-                            <div
-                              key={img.id || imgIdx}
-                              className="relative rounded-2xl overflow-hidden border border-emerald-200 bg-emerald-950 group/img shadow-md hover:border-amber-400 transition-all"
-                            >
-                              <div className="relative aspect-[16/10] w-full overflow-hidden">
-                                <img
-                                  src={img.url}
-                                  alt={img.alt}
-                                  loading="lazy"
-                                  decoding="async"
-                                  className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-transparent to-transparent opacity-70" />
-
-                                <button
-                                  onClick={() => onOpenImageModal(img)}
-                                  className="absolute top-2.5 right-2.5 p-1.5 rounded-full bg-emerald-950/80 border border-emerald-700 text-amber-300 hover:bg-amber-400 hover:text-emerald-950 transition-all shadow-md"
-                                  title="Phóng to hình ảnh"
-                                >
-                                  <ZoomIn className="w-3.5 h-3.5" />
-                                </button>
-                              </div>
-
-                              {img.caption && (
-                                <div className="p-3 sm:p-3.5 bg-emerald-950 text-xs sm:text-sm text-slate-200 border-t border-emerald-900">
-                                  <p className="font-medium leading-relaxed">{img.caption}</p>
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
+                        <Timeline1ImageCarousel
+                          images={item.images!}
+                          onOpenImageModal={onOpenImageModal}
+                        />
                       </div>
                     )}
                   </div>
