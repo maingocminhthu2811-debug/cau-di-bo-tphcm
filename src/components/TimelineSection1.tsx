@@ -70,6 +70,7 @@ export const TimelineSection1: React.FC<TimelineSection1Props> = ({ onOpenImageM
                                   src={img.url}
                                   alt={img.alt}
                                   loading="lazy"
+                                  decoding="async"
                                   className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-transparent to-transparent opacity-70" />

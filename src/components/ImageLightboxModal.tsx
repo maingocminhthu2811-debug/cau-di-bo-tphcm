@@ -39,6 +39,7 @@ export const ImageLightboxModal: React.FC<ImageLightboxModalProps> = ({ image, o
         <img
           src={image.url}
           alt={image.alt || 'Hình ảnh phóng to'}
+          decoding="async"
           className="max-w-full max-h-[92vh] object-contain rounded-xl sm:rounded-2xl shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         />

@@ -23,30 +23,25 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 
     safePlay();
 
-    const eventTypes = ['pause', 'ended', 'loadedmetadata', 'canplay'];
+    const eventTypes = ['loadeddata', 'canplay', 'visibilitychange'];
     eventTypes.forEach((evt) => {
-      video.addEventListener(evt, safePlay);
+      window.addEventListener(evt, safePlay, { passive: true });
     });
 
-    const handleVisibilityChange = () => {
-      if (!document.hidden) {
-        safePlay();
-      }
+    const handleFirstTouch = () => {
+      safePlay();
+      window.removeEventListener('touchstart', handleFirstTouch);
+      window.removeEventListener('scroll', handleFirstTouch);
     };
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    const watchdogInterval = setInterval(() => {
-      if (video.paused) {
-        safePlay();
-      }
-    }, 1000);
+    window.addEventListener('touchstart', handleFirstTouch, { passive: true });
+    window.addEventListener('scroll', handleFirstTouch, { passive: true });
 
     return () => {
       eventTypes.forEach((evt) => {
-        video.removeEventListener(evt, safePlay);
+        window.removeEventListener(evt, safePlay);
       });
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      clearInterval(watchdogInterval);
+      window.removeEventListener('touchstart', handleFirstTouch);
+      window.removeEventListener('scroll', handleFirstTouch);
     };
   }, []);
 
@@ -62,14 +57,15 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
         background: '#0a0a0b',
       }}
     >
-      {/* Full-bleed Background Video */}
+      {/* Full-bleed Background Video with Instant Poster & Responsive Mobile Stream */}
       <video
         ref={videoRef}
         muted
         loop
         playsInline
         autoPlay
-        preload="auto"
+        preload="metadata"
+        poster="/hero-poster.webp"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
         style={{
           position: 'absolute',
@@ -81,8 +77,9 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           pointerEvents: 'none',
         }}
       >
+        <source media="(max-width: 768px)" src="/video-mobile.mp4" type="video/mp4" />
+        <source src="/video-desktop.mp4" type="video/mp4" />
         <source src="/video%20n%E1%BB%81n/video%20nen.mp4" type="video/mp4" />
-        <source src="/video nền/video nen.mp4" type="video/mp4" />
       </video>
 
       {/* Reduced Bright Dark Gradient Overlay */}
