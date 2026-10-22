@@ -32,17 +32,17 @@ export const TIMELINE_PHASE_1: MilestoneItem[] = [
     images: [
       {
         id: "p1-1",
-        url: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=1600&auto=format&fit=crop",
-        alt: "Phương án thiết kế cầu đi bộ lá dừa nước phối cảnh hoàng hôn",
-        caption: "Phối cảnh 3D thiết kế cầu đi bộ lấy cảm hứng từ chiếc lá dừa nước Nam Bộ độc đáo.",
+        url: "/assets/aistudio/Ph_i_c_nh_to_n_b__c_u__i_b__qua_s_ng_S_i_G_n.__nh_CTV_a7ddf3b4.jpg",
+        alt: "Phối cảnh toàn bộ cầu đi bộ qua sông Sài Gòn",
+        caption: "Phối cảnh toàn bộ cầu đi bộ qua sông Sài Gòn",
         location: "Sông Sài Gòn - Bến Bạch Đằng",
         date: "Tháng 10/2023"
       },
       {
         id: "p1-2",
-        url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600&auto=format&fit=crop",
-        alt: "Mô hình kiến trúc chi tiết vòm thép cầu đi bộ ban đêm",
-        caption: "Mô hình chiếu sáng nghệ thuật lung linh kết nối Bến Bạch Đằng và Khu đô thị mới Thủ Thiêm.",
+        url: "/assets/aistudio/M__h_nh_c_u__i_b_.__nh_CTV_b8b4b0f4.jpg",
+        alt: "Mô hình cầu đi bộ",
+        caption: "Mô hình cầu đi bộ. Ảnh: CTV",
         location: "TPHCM",
         date: "Tháng 10/2023"
       }
@@ -56,19 +56,19 @@ export const TIMELINE_PHASE_1: MilestoneItem[] = [
     images: [
       {
         id: "p2-1",
-        url: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop",
-        alt: "Lễ ký kết biên bản thỏa thuận tài trợ công trình cầu đi bộ 1000 tỷ",
-        caption: "Toàn cảnh Lễ ký kết biên bản thỏa thuận tài trợ công trình giữa UBND TPHCM và Nutifood.",
-        location: "Trung tâm Hội nghị UBND TPHCM",
-        date: "Tháng 12/2023"
+        url: "/assets/aistudio/hinh_1_ca727da2.jpg",
+        alt: "Đại diện Sở GTVT TPHCM và Công ty CP Thực phẩm Dinh dưỡng Nutifood chính thức ký kết",
+        caption: "Đại diện Sở GTVT TPHCM và Công ty CP Thực phẩm Dinh dưỡng Nutifood chính thức ký kết Biên bản thỏa thuận tài trợ về việc xây dựng cầu đi bộ qua sông Sài Gòn, ngày 4-12-2023",
+        location: "UBND TPHCM",
+        date: "04/12/2023"
       },
       {
         id: "p2-2",
-        url: "https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1600&auto=format&fit=crop",
-        alt: "Lãnh đạo TPHCM và đại diện nhà tài trợ trao biên bản hợp tác",
-        caption: "Lãnh đạo TPHCM biểu dương nguồn lực xã hội hóa vì sự phát triển văn minh, hiện đại của thành phố.",
-        location: "TPHCM",
-        date: "Tháng 12/2023"
+        url: "/assets/aistudio/hinh_2_a9617bce.jpg",
+        alt: "Nghi thức trao biên bản thỏa thuận tài trợ xây dựng cầu đi bộ qua sông Sài Gòn",
+        caption: "Đại diện Sở GTVT TPHCM và Công ty CP Thực phẩm Dinh dưỡng Nutifood chính thức ký kết Biên bản thỏa thuận tài trợ về việc xây dựng cầu đi bộ qua sông Sài Gòn, ngày 4-12-2023",
+        location: "UBND TPHCM",
+        date: "04/12/2023"
       }
     ]
   },
@@ -79,18 +79,18 @@ export const TIMELINE_PHASE_1: MilestoneItem[] = [
     images: [
       {
         id: "p3-1",
-        url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop",
-        alt: "Lễ khởi công công trình cầu đi bộ vượt sông Sài Gòn",
-        caption: "Không khí trang trọng tại lễ khởi công dự án hướng tới mốc mốc 50 năm Giải phóng miền Nam.",
-        location: "Công viên Bến Bạch Đằng, Quận 1",
+        url: "/assets/aistudio/hinh_1_36884d94.jpeg",
+        alt: "Lễ khởi công dự án xây dựng cầu đi bộ qua sông Sài Gòn",
+        caption: "",
+        location: "Công viên Bến Bạch Đằng, TPHCM",
         date: "29/03/2025"
       },
       {
         id: "p3-2",
-        url: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1600&auto=format&fit=crop",
-        alt: "Thiết bị máy móc chuẩn bị thi công móng cọc cầu đi bộ",
-        caption: "Các dàn máy khoan cọc nhồi công suất lớn sẵn sàng thi công móng cầu trên sông Sài Gòn.",
-        location: "Sông Sài Gòn",
+        url: "/assets/aistudio/hinh_2_c1542cc6.jpeg",
+        alt: "Các đồng chí lãnh đạo và đại biểu tham dự lễ khởi công",
+        caption: "",
+        location: "Công viên Bến Bạch Đằng, TPHCM",
         date: "29/03/2025"
       }
     ]
@@ -108,21 +108,15 @@ export const TIMELINE_PHASE_2: MilestoneItem[] = [
     images: [
       {
         id: "c1-img-1",
-        url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
-        alt: "Đưa kết cấu thép cầu lên sà lan tại nhà máy đóng tàu Đại Dũng",
-        caption: "Kỹ sư và công nhân tập trung cao độ đưa vòm thép 1.400T lên sà lan."
+        url: "/assets/aistudio/hinh_1_cd8d17f5.jpg",
+        alt: "Đưa kết cấu thép cầu lên sà lan tại Nhà máy đóng tàu Đại Dũng",
+        caption: ""
       },
       {
         id: "c1-img-2",
-        url: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop",
-        alt: "Công tác chuẩn bị hạ thủy vòm thép cầu đi bộ",
-        caption: "Công nhân kiểm tra các khớp nối đai thép trước giờ giội thủy."
-      },
-      {
-        id: "c1-img-3",
-        url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600&auto=format&fit=crop",
-        alt: "Thử tải đặc biệt hệ khung thép 3.400 tấn",
-        caption: "Thử tải kiên cố kiểm tra độ biến dạng và khả năng chịu lực của kết cấu cầu chính 1.400T và khung đỡ 2.000T."
+        url: "/assets/aistudio/hinh_2_8e0b8ab2.jpg",
+        alt: "Chuẩn bị hạ thủy kết cấu thép cầu đi bộ qua sông Sài Gòn",
+        caption: ""
       }
     ]
   },
@@ -135,27 +129,15 @@ export const TIMELINE_PHASE_2: MilestoneItem[] = [
     images: [
       {
         id: "c2-img-1",
-        url: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=1200&auto=format&fit=crop",
-        alt: "Đoàn tàu kéo lai dắt vòm thép qua cầu Bình Khánh",
-        caption: "Đoàn lai dắt 4 tàu di chuyển qua khu vực trụ cầu Bình Khánh."
+        url: "/assets/aistudio/hinh_1__2__0dfbd365.jpg",
+        alt: "Vòm thép cầu đi bộ được lai dắt trên sông Sài Gòn hướng về trung tâm thành phố",
+        caption: ""
       },
       {
         id: "c2-img-2",
-        url: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
-        alt: "Tàu kéo chính và tàu hỗ trợ áp mạn trên sông Soài Ráp",
-        caption: "Hai tàu hỗ trợ áp mạn điều tiết tốc độ trên hành trình 124km."
-      },
-      {
-        id: "c2-img-3",
-        url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
-        alt: "Vòm thép lá dừa di chuyển giữa sông Sài Gòn",
-        caption: "Khối thép khổng lồ tiến về khu vực Bến Bạch Đằng - Thủ Thiêm."
-      },
-      {
-        id: "c2-img-4",
-        url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200&auto=format&fit=crop",
-        alt: "Toàn cảnh sông Sài Gòn đón nhịp cầu thép",
-        caption: "Quang cảnh giao thông đường thủy trên tuyến sông phía Nam TPHCM."
+        url: "/assets/aistudio/hinh_2_9e0931ac.jpg",
+        alt: "Người dân tập trung theo dõi hành trình lai dắt vòm thép cầu đi bộ",
+        caption: ""
       }
     ]
   },
@@ -168,33 +150,39 @@ export const TIMELINE_PHASE_2: MilestoneItem[] = [
     images: [
       {
         id: "c3-img-1",
-        url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop",
-        alt: "Hợp long dầm thép chính cầu đi bộ xuyên đêm",
-        caption: "Khoảnh khắc vòm thép lá dừa nước được đưa chính xác vào vị trí trụ cầu Bến Bạch Đằng - Thủ Thiêm giữa đêm muộn."
+        url: "/assets/aistudio/hinh_1_d21ffba6.jpg",
+        alt: "Hợp long dầm thép chính cầu đi bộ qua sông Sài Gòn ban đêm",
+        caption: ""
       },
       {
         id: "c3-img-2",
-        url: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop",
-        alt: "Giai đoạn hoàn thiện lan can và chiếu sáng",
-        caption: "Thi công hoàn thiện mặt cầu và hệ thống chiếu sáng nghệ thuật."
+        url: "/assets/aistudio/hinh_2_032d7812.jpg",
+        alt: "Toàn cảnh vòm thép cầu đi bộ giữa lòng thành phố",
+        caption: ""
       },
       {
         id: "c3-img-3",
-        url: "https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1200&auto=format&fit=crop",
-        alt: "Không gian sinh hoạt cộng đồng bờ sông",
-        caption: "Mặt cầu sẵn sàng mở ra không gian đi bộ ngắm cảnh sông Sài Gòn."
+        url: "/assets/aistudio/hinh_3_9bde3c80.JPG",
+        alt: "Toàn cảnh cầu đi bộ nhìn từ trên cao nối nhịp đôi bờ",
+        caption: ""
       },
       {
         id: "c3-img-4",
-        url: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop",
-        alt: "Cảnh quan Bến Bạch Đằng và Thủ Thiêm",
-        caption: "Nối liền trái tim tự hào của người dân TPHCM trước Tết 2027."
+        url: "/assets/aistudio/hinh_4_4a680c60.JPG",
+        alt: "Vòm cầu đi bộ hòa cùng đường chân trời hiện đại của TPHCM",
+        caption: ""
       },
       {
         id: "c3-img-5",
-        url: "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?q=80&w=1200&auto=format&fit=crop",
-        alt: "Cận cảnh nhịp vòm thép lá dừa nước hoàn thành",
-        caption: "Kiệt tác kiến trúc thép vòm lá dừa nước rực rỡ soi bóng trên sông Sài Gòn."
+        url: "/assets/aistudio/hinh_5_d23b7bd1.jpg",
+        alt: "Thi công lắp đặt dầm thép cầu đi bộ",
+        caption: ""
+      },
+      {
+        id: "c3-img-6",
+        url: "/assets/aistudio/hinh_6_888c040a.JPG",
+        alt: "Góc nhìn từ công viên Mê Linh hướng về cầu đi bộ",
+        caption: ""
       }
     ]
   }
@@ -203,30 +191,30 @@ export const TIMELINE_PHASE_2: MilestoneItem[] = [
 export const PHASE_2_GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "p2-img-1",
-    url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop",
+    url: "/assets/aistudio/hinh_1_cd8d17f5.jpg",
     alt: "Đưa kết cấu thép cầu lên sà lan tại nhà máy đóng tàu Đại Dũng",
-    caption: "Kỹ sư và công nhân tập trung cao độ đưa vòm thép 1.400T lên hệ khung nâng 2.000T.",
+    caption: "",
     location: "KCN Đông Xuyên, TPHCM",
     date: "Đêm 15-10-2026",
-    photographer: "SGGP Photo / AURA Visual"
+    photographer: "SGGP Photo / CTV"
   },
   {
     id: "p2-img-2",
-    url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600&auto=format&fit=crop",
-    alt: "Thử tải đặc biệt hệ khung thép 3400 tấn trước khi hạ thủy",
-    caption: "Thử tải kiên cố kiểm tra độ biến dạng và khả năng chịu lực của kết cấu cầu chính.",
+    url: "/assets/aistudio/hinh_2_8e0b8ab2.jpg",
+    alt: "Công tác chuẩn bị hạ thủy kết cấu thép cầu đi bộ",
+    caption: "",
     location: "Cảng Đông Xuyên",
     date: "15-10-2026",
-    photographer: "Đại Dũng Shipyard"
+    photographer: "SGGP Photo / CTV"
   },
   {
     id: "p2-img-3",
-    url: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=1600&auto=format&fit=crop",
-    alt: "Đoàn tàu kéo lai dắt vòm thép qua cầu Bình Khánh trên hành trình 124km",
-    caption: "Đoàn lai dắt gồm 4 tàu chuyên dụng di chuyển giữa luồng hàng hải sông Sài Gòn.",
-    location: "Sông Soài Ráp - Cầu Bình Khánh",
-    date: "4h00 ngày 18-10-2026",
-    photographer: "Ban Quản lý Dự án"
+    url: "/assets/aistudio/hinh_1__2__0dfbd365.jpg",
+    alt: "Vòm thép cầu đi bộ được lai dắt trên sông Sài Gòn",
+    caption: "",
+    location: "Sông Sài Gòn - Bến Bạch Đằng",
+    date: "18-10-2026",
+    photographer: "SGGP Photo / CTV"
   },
   {
     id: "p2-img-4",
@@ -328,12 +316,12 @@ export const MARQUEE_ROW_2: GalleryImage[] = [
 
 export const GRAND_FINAL_IMAGE: GalleryImage = {
   id: "grand-final",
-  url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000&auto=format&fit=crop",
-  alt: "Toàn cảnh cầu đi bộ bắc qua sông Sài Gòn hoàn thiện rực rỡ đón Tết 2027",
-  caption: "Biểu tượng kiến trúc mới của TPHCM – Cầu đi bộ lá dừa nước lung linh soi bóng sông Sài Gòn.",
+  url: "/assets/aistudio/1792657085645_3081204943641323774_g5073564722849541716_c8097a59a4a24a1a34ac2da208d3ea32_dce4d37f.jpg",
+  alt: "Cầu đi bộ qua sông Sài Gòn",
+  caption: "",
   location: "Bến Bạch Đằng - Khu đô thị mới Thủ Thiêm, TPHCM",
-  date: "Dự kiến đưa vào vận hành trước Tết Nguyên đán 2027",
-  photographer: "SGGP Special Edition / AURA Visual Studio"
+  date: "Tháng 10-2026",
+  photographer: "SGGP Special Edition / CTV"
 };
 
 export const ARCHITECTURAL_HOTSPOTS: ArchitecturalSpot[] = [
@@ -366,3 +354,43 @@ export const ARCHITECTURAL_HOTSPOTS: ArchitecturalSpot[] = [
     y: 22
   }
 ];
+
+export const SECTION3_GRID_IMAGES: GalleryImage[] = [
+  {
+    id: "s3-img-1",
+    url: "/assets/aistudio/1792570593530_3081204943641323774_g5073564722849541716_73a8dcd9774a173fa611ba42cac21ffe_d7288b01.jpg",
+    alt: "Người dân theo dõi và chụp ảnh vòm cầu đi bộ qua sông Sài Gòn tại Bến Bạch Đằng",
+    caption: ""
+  },
+  {
+    id: "s3-img-2",
+    url: "/assets/aistudio/1792570555804_3081204943641323774_g5073564722849541716_f366ba2a663cb892af05d691504570c6_92822e04.jpg",
+    alt: "Các bạn trẻ chiêm ngưỡng khối thép khổng lồ hình lá dừa nước trên sông",
+    caption: ""
+  },
+  {
+    id: "s3-img-3",
+    url: "/assets/aistudio/1792570555749_3081204943641323774_g5073564722849541716_a73a06deede147038818b3c1cfc6ee54_5c58d35c.jpg",
+    alt: "Người dân ghi lại khoảnh khắc vòm thép cầu đi bộ tiến về trung tâm thành phố",
+    caption: ""
+  },
+  {
+    id: "s3-img-4",
+    url: "/assets/aistudio/1792570501046_3081204943641323774_g5073564722849541716_a69a62de305c0bd67de9ea0e15d0f2f9_aa06f276.jpg",
+    alt: "Lực lượng an ninh và công nhân hân hoan vẫy cờ Tổ quốc chào đón nhịp cầu",
+    caption: ""
+  },
+  {
+    id: "s3-img-5",
+    url: "/assets/aistudio/1792570501154_3081204943641323774_g5073564722849541716_c9dafa80dd4c3081a25773989acad954_c3b27a33.jpg",
+    alt: "Người dân qua phà sông Sài Gòn ngắm nhìn kết cấu vòm thép cầu đi bộ",
+    caption: ""
+  },
+  {
+    id: "s3-img-6",
+    url: "/assets/aistudio/1792570555684_3081204943641323774_g5073564722849541716_d1fc795d04c0746d04a5bfd9b753c991_ae826cab.jpg",
+    alt: "Đoàn kỹ sư và công nhân trên nhịp dẫn cầu đi bộ",
+    caption: ""
+  }
+];
+

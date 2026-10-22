@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { GalleryImage } from '../types';
-import { X, MapPin, Calendar, Camera, Download } from 'lucide-react';
+import { X } from 'lucide-react';
 
 interface ImageLightboxModalProps {
   image: GalleryImage | null;
@@ -21,76 +21,27 @@ export const ImageLightboxModal: React.FC<ImageLightboxModalProps> = ({ image, o
   if (!image) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-emerald-950/90 backdrop-blur-2xl animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md animate-fadeIn">
       {/* Backdrop click to close */}
-      <div className="absolute inset-0" onClick={onClose} />
+      <div className="absolute inset-0 cursor-pointer" onClick={onClose} />
 
-      {/* Modal Container */}
-      <div className="relative z-10 max-w-5xl w-full bg-emerald-950 border border-emerald-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
-        {/* Header bar */}
-        <div className="p-4 bg-emerald-950 border-b border-emerald-900 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-            <span className="text-xs font-mono text-amber-300 font-bold">AURA LIGHTBOX VIEW</span>
-          </div>
+      {/* Nút X ở góc phải */}
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 p-2.5 sm:p-3 rounded-full bg-black/70 hover:bg-black/95 text-white hover:text-amber-400 border border-white/20 transition-all shadow-2xl cursor-pointer"
+        title="Đóng (ESC)"
+      >
+        <X className="w-6 h-6 sm:w-7 sm:h-7" />
+      </button>
 
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full bg-emerald-900 hover:bg-amber-400 hover:text-emerald-950 text-emerald-100 transition-colors"
-            title="Đóng (ESC)"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Image Frame */}
-        <div className="relative flex-1 bg-black flex items-center justify-center overflow-hidden min-h-[300px] max-h-[60vh]">
-          <img
-            src={image.url}
-            alt={image.alt}
-            className="max-w-full max-h-full object-contain"
-          />
-        </div>
-
-        {/* Caption & Metadata Footer */}
-        <div className="p-6 bg-emerald-950 border-t border-emerald-900 space-y-3">
-          <p className="text-base sm:text-lg font-medium text-slate-100">{image.caption}</p>
-
-          <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-300 pt-2 border-t border-emerald-900">
-            <div className="flex flex-wrap items-center gap-4">
-              {image.location && (
-                <span className="flex items-center gap-1.5 text-amber-300 font-bold">
-                  <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                  {image.location}
-                </span>
-              )}
-
-              {image.date && (
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-emerald-400" />
-                  {image.date}
-                </span>
-              )}
-
-              {image.photographer && (
-                <span className="flex items-center gap-1.5">
-                  <Camera className="w-3.5 h-3.5 text-emerald-400" />
-                  {image.photographer}
-                </span>
-              )}
-            </div>
-
-            <a
-              href={image.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3.5 py-1.5 rounded-xl bg-amber-400 text-emerald-950 font-bold hover:bg-amber-300 transition-all flex items-center gap-1.5 shadow"
-            >
-              <Download className="w-3.5 h-3.5" />
-              Tải ảnh gốc
-            </a>
-          </div>
-        </div>
+      {/* Chỉ hiển thị hình to */}
+      <div className="relative z-10 max-w-[95vw] max-h-[92vh] flex items-center justify-center select-none">
+        <img
+          src={image.url}
+          alt={image.alt || 'Hình ảnh phóng to'}
+          className="max-w-full max-h-[92vh] object-contain rounded-xl sm:rounded-2xl shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        />
       </div>
     </div>
   );

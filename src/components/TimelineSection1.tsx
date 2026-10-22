@@ -83,9 +83,11 @@ export const TimelineSection1: React.FC<TimelineSection1Props> = ({ onOpenImageM
                                 </button>
                               </div>
 
-                              <div className="p-3 bg-emerald-950 text-xs text-slate-200 border-t border-emerald-900">
-                                <p className="font-medium line-clamp-2">{img.caption}</p>
-                              </div>
+                              {img.caption && (
+                                <div className="p-3 sm:p-3.5 bg-emerald-950 text-xs sm:text-sm text-slate-200 border-t border-emerald-900">
+                                  <p className="font-medium leading-relaxed">{img.caption}</p>
+                                </div>
+                              )}
                             </div>
                           ))}
                         </div>
