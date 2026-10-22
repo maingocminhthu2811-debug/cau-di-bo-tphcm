@@ -40,7 +40,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
       />
 
       {/* Title Container - Positioned in the Top 1/4 of the Hero Area */}
-      <div className="relative z-20 max-w-5xl mx-auto w-full text-center flex flex-col items-center justify-start space-y-1 sm:space-y-1.5 pt-6 sm:pt-8 lg:pt-10">
+      <div className="relative z-20 max-w-5xl mx-auto w-full text-center flex flex-col items-center justify-start space-y-1 sm:space-y-1.5 pt-14 sm:pt-20 lg:pt-28">
         {/* Line 1: CẦU ĐI BỘ (UPPERCASE, Bold) */}
         <h1
           className="font-display font-black text-white uppercase tracking-tight leading-none text-balance"
