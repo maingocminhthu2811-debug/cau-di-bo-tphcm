@@ -18,26 +18,42 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
         background: '#0a0a0b',
       }}
     >
-      {/* Background Image - Crisp aerial view of pedestrian bridge over Saigon River */}
-      <img
-        src="/assets/aistudio/1792657085594_3081204943641323774_g5073564722849541716_17d9c0fa5c20d6b2de9dd8c5fd4d376b_25b5c1b4.jpg"
-        alt="Toàn cảnh vị trí cầu đi bộ qua sông Sài Gòn"
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          objectPosition: 'center 40%',
-          pointerEvents: 'none',
-          userSelect: 'none',
-          WebkitUserSelect: 'none',
-        }}
-      />
+      {/* Background Image - Responsive Crisp Aerial View of Pedestrian Bridge */}
+      <picture className="absolute inset-0 w-full h-full pointer-events-none select-none z-0">
+        <source
+          media="(max-width: 768px)"
+          srcSet="/assets/aistudio/hero_mobile.webp"
+          type="image/webp"
+        />
+        <source
+          media="(max-width: 768px)"
+          srcSet="/assets/aistudio/hero_mobile.jpg"
+          type="image/jpeg"
+        />
+        <source
+          srcSet="/assets/aistudio/hero_optimized.webp"
+          type="image/webp"
+        />
+        <img
+          src="/assets/aistudio/hero_optimized.jpg"
+          alt="Toàn cảnh vị trí cầu đi bộ qua sông Sài Gòn"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center 40%',
+            pointerEvents: 'none',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+          }}
+        />
+      </picture>
 
       {/* Title Container - Positioned in the Top 1/4 of the Hero Area */}
       <div className="relative z-20 max-w-5xl mx-auto w-full text-center flex flex-col items-center justify-start space-y-1 sm:space-y-1.5 pt-14 sm:pt-20 lg:pt-28">
