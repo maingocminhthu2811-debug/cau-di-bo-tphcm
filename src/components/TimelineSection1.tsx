@@ -170,7 +170,7 @@ const Timeline1ImageCarousel: React.FC<{
 
 export const TimelineSection1: React.FC<TimelineSection1Props> = ({ onOpenImageModal }) => {
   return (
-    <section id="timeline-1" className="pt-48 sm:pt-56 pb-16 px-4 sm:px-6 lg:px-8 bg-[#eef8f2] border-b border-emerald-200/80 relative">
+    <section id="timeline-1" className="pt-8 sm:pt-48 lg:pt-52 pb-16 px-4 sm:px-6 lg:px-8 bg-[#eef8f2] border-b border-emerald-200/80 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="mb-14 text-center max-w-4xl mx-auto">
