@@ -42,15 +42,7 @@ export const Section3ConnectingBores: React.FC<Section3Props> = ({ onOpenImageMo
           </div>
         </div>
 
-        {/* Title */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-          <h2
-            className="font-display font-extrabold text-emerald-950 tracking-tight leading-tight text-balance"
-            style={{ fontSize: 'clamp(2rem, 4vw + 0.5rem, 3.5rem)' }}
-          >
-            Nhịp cầu nối những bờ vui
-          </h2>
-        </div>
+
       </div>
 
       {/* Narrative Section */}
