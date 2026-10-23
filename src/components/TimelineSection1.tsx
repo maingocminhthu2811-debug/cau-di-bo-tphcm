@@ -50,14 +50,14 @@ const Timeline1ImageCarousel: React.FC<{
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div className="relative aspect-[16/10] sm:aspect-[21/9] max-h-56 sm:max-h-64 w-full overflow-hidden flex items-center justify-center bg-black">
+        <div className="relative aspect-[16/10] sm:aspect-[21/9] max-h-56 sm:max-h-64 w-full overflow-hidden flex items-center justify-center bg-emerald-950">
           <img
             key={currentImg.id || currentIndex}
             src={currentImg.url}
             alt={currentImg.alt || ''}
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover transition-transform duration-500 ease-out"
+            className="w-full h-full object-contain object-center transition-transform duration-500 ease-out"
           />
 
           {/* Left Navigation Button */}
@@ -138,13 +138,13 @@ const Timeline1ImageCarousel: React.FC<{
             key={img.id || imgIdx}
             className="relative rounded-2xl overflow-hidden border border-emerald-200 bg-emerald-950 group/img shadow-md hover:border-amber-400 transition-all"
           >
-            <div className="relative aspect-[16/10] w-full overflow-hidden">
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-emerald-950 flex items-center justify-center">
               <img
                 src={img.url}
                 alt={img.alt}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-contain object-center group-hover/img:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-transparent to-transparent opacity-70" />
               <button

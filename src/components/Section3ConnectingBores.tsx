@@ -19,7 +19,7 @@ export const Section3ConnectingBores: React.FC<Section3Props> = ({ onOpenImageMo
             {SECTION3_GRID_IMAGES.map((img) => (
               <div
                 key={img.id}
-                className="relative aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-emerald-300/90 bg-emerald-950 group shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-300"
+                className="relative aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-emerald-300/90 bg-slate-900 group shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-300"
               >
                 <img
                   src={img.url}
@@ -27,6 +27,7 @@ export const Section3ConnectingBores: React.FC<Section3Props> = ({ onOpenImageMo
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  style={{ objectPosition: 'center 30%' }}
                 />
                 <button
                   type="button"

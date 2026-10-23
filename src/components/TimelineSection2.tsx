@@ -58,14 +58,14 @@ const SingleImageCarousel: React.FC<SingleImageCarouselProps> = ({
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      <div className={`relative ${aspectRatioClass} w-full overflow-hidden flex items-center justify-center bg-black`}>
+      <div className={`relative ${aspectRatioClass} w-full overflow-hidden flex items-center justify-center bg-slate-900`}>
         <img
           key={currentImg.id || currentIndex}
           src={currentImg.url}
           alt={currentImg.alt || ''}
           loading="lazy"
           decoding="async"
-          className="w-full h-full object-cover animate-fadeIn transition-transform duration-500 ease-out"
+          className="w-full h-full object-cover object-center animate-fadeIn transition-transform duration-500 ease-out"
         />
 
         {/* Left Navigation Button */}

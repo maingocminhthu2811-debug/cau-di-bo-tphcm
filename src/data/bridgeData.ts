@@ -358,38 +358,38 @@ export const ARCHITECTURAL_HOTSPOTS: ArchitecturalSpot[] = [
 export const SECTION3_GRID_IMAGES: GalleryImage[] = [
   {
     id: "s3-img-1",
-    url: "/assets/aistudio/1792570593530_3081204943641323774_g5073564722849541716_73a8dcd9774a173fa611ba42cac21ffe_d7288b01.jpg",
-    alt: "Người dân theo dõi và chụp ảnh vòm cầu đi bộ qua sông Sài Gòn tại Bến Bạch Đằng",
+    url: "/assets/aistudio/1792570500409_3081204943641323774_g5073564722849541716_d42d309813abb2636812868a6ee87874_d4e65eac.jpg",
+    alt: "Nhiếp ảnh gia ghi lại hình ảnh vòm thép cầu đi bộ và đoàn thuyền trên sông Sài Gòn",
     caption: ""
   },
   {
     id: "s3-img-2",
-    url: "/assets/aistudio/1792570555804_3081204943641323774_g5073564722849541716_f366ba2a663cb892af05d691504570c6_92822e04.jpg",
-    alt: "Các bạn trẻ chiêm ngưỡng khối thép khổng lồ hình lá dừa nước trên sông",
+    url: "/assets/aistudio/1792570500764_3081204943641323774_g5073564722849541716_cadae6c92485c91c3d199a332978ea54_52ae7eaf.jpg",
+    alt: "Người dân chụp ảnh lưu niệm cùng công trình cầu đi bộ qua sông Sài Gòn",
     caption: ""
   },
   {
     id: "s3-img-3",
-    url: "/assets/aistudio/1792570555749_3081204943641323774_g5073564722849541716_a73a06deede147038818b3c1cfc6ee54_5c58d35c.jpg",
-    alt: "Người dân ghi lại khoảnh khắc vòm thép cầu đi bộ tiến về trung tâm thành phố",
+    url: "/assets/aistudio/1792570500929_3081204943641323774_g5073564722849541716_8a1ca3703ae4d2969dee0d5929a326d0_bc739728.jpg",
+    alt: "Hai chiến sĩ chụp ảnh vòm thép cầu đi bộ trên sông",
     caption: ""
   },
   {
     id: "s3-img-4",
-    url: "/assets/aistudio/1792570501046_3081204943641323774_g5073564722849541716_a69a62de305c0bd67de9ea0e15d0f2f9_aa06f276.jpg",
-    alt: "Lực lượng an ninh và công nhân hân hoan vẫy cờ Tổ quốc chào đón nhịp cầu",
+    url: "/assets/aistudio/1792570593506_3081204943641323774_g5073564722849541716_4287e873525033f58920cbdbf8e4f874_e2261924.jpg",
+    alt: "Người dân hào hứng check-in trước công trình biểu tượng mới",
     caption: ""
   },
   {
     id: "s3-img-5",
-    url: "/assets/aistudio/1792570501154_3081204943641323774_g5073564722849541716_c9dafa80dd4c3081a25773989acad954_c3b27a33.jpg",
-    alt: "Người dân qua phà sông Sài Gòn ngắm nhìn kết cấu vòm thép cầu đi bộ",
+    url: "/assets/aistudio/1792570500806_3081204943641323774_g5073564722849541716_9ce915a0fcd0151dc6dd2ad01a5623d8_14f36239.jpg",
+    alt: "Các bạn trẻ chụp ảnh kỷ niệm hướng về vòm cầu đi bộ",
     caption: ""
   },
   {
     id: "s3-img-6",
-    url: "/assets/aistudio/1792570555684_3081204943641323774_g5073564722849541716_d1fc795d04c0746d04a5bfd9b753c991_ae826cab.jpg",
-    alt: "Đoàn kỹ sư và công nhân trên nhịp dẫn cầu đi bộ",
+    url: "/assets/aistudio/1792570501176_3081204943641323774_g5073564722849541716_1b2301b3dc1038951aa0e55097979d3d_9d2eec69.jpg",
+    alt: "Em nhỏ thích thú chỉ tay về phía công trình vòm thép trên sông",
     caption: ""
   }
 ];
